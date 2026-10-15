@@ -136,6 +136,8 @@ def inserir_versiculos():
             abv = livros_dict[codigo][0]
             livro_id = db.execute("SELECT id FROM livros WHERE abv=:abv", {"abv": abv}).fetchone()[0]
 
+            texto = texto.strip()
+
             db.execute("""
                 INSERT INTO biblia (livro_id, capitulo, versiculo, texto)
                 VALUES (?, ?, ?, ?)
