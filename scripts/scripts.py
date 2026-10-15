@@ -146,5 +146,6 @@ def inserir_versiculos():
 criar_banco()
 inserir_livros()
 inserir_versiculos()
+db.execute("INSERT INTO biblia_fts(biblia_fts) VALUES ('rebuild');")
 con.commit()
 con.close()
