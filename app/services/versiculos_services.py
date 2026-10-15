@@ -1,4 +1,4 @@
-from app.repositories.versiculos_repository import buscar_versiculo_repository, buscar_capitulo_repostitory
+from app.repositories.versiculos_repository import buscar_versiculo_repository, buscar_capitulo_repository
 from fastapi import HTTPException
 
 def buscar_versiculo_service(livro_abv, capitulo, versiculo):
@@ -8,7 +8,7 @@ def buscar_versiculo_service(livro_abv, capitulo, versiculo):
     return verso
 
 def buscar_capitulo_service(livro_abv, capitulo):
-    capitulo_versos = buscar_capitulo_repostitory(livro_abv, capitulo)
+    capitulo_versos = buscar_capitulo_repository(livro_abv, capitulo)
     if capitulo_versos is None:
         raise HTTPException(404, "Capítulo não encontrado")
     return capitulo_versos
