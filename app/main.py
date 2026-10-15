@@ -9,4 +9,8 @@ app.include_router(versiculos_router)
 
 @app.get("/")
 def home():
-    return {"message": "Biblia API"}
+    return {
+        "message": "Biblia API",
+        "versão": "0.2.0",
+        "créditos": "Todas as Escrituras em português citadas são da Bíblia Livre (BLIVRE), Copyright © Diego Santos, Mario Sérgio, e Marco Teles, http://sites.google.com/site/biblialivre/ - outubro de 2017. Licença Creative Commons Atribuição 3.0 Brasil (http://creativecommons.org/licenses/by/3.0/br/). Reprodução permitida desde que devidamente mencionados fonte e autores."
+        }
