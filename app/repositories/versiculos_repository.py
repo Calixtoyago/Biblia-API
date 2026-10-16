@@ -35,3 +35,27 @@ def buscar_capitulo_repository(livro_abv, capitulo):
         "capitulo": capitulo,
         "versiculos": [dict(verso) for verso in versiculos]
     }
+
+def buscar_intervalo_repository(livro_abv, capitulo, inicio, fim):
+    livro_query = "SELECT id, nome FROM livros WHERE lower(abv) = lower(?)"
+    versiculos_query = """
+        SELECT versiculo AS numero, texto
+        FROM biblia
+        WHERE livro_id = ? AND capitulo = ?
+        AND numero BETWEEN ? AND ?
+        ORDER BY versiculo
+    """
+    with get_con() as con:
+        livro = con.execute(livro_query, (livro_abv,)).fetchone()
+        if livro is None:
+            return None
+        versiculos = con.execute(versiculos_query, (livro["id"], capitulo, inicio, fim)).fetchall()
+
+    if not versiculos:
+        return None
+    
+    return {
+        "nome": livro["nome"],
+        "capitulo": capitulo,
+        "versiculos": [dict(verso) for verso in versiculos]
+    }

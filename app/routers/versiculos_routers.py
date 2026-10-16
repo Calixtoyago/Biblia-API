@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from app.schemas import VersiculoResponse, CapituloResponse
-from app.services.versiculos_services import buscar_versiculo_service, buscar_capitulo_service
+from app.services.versiculos_services import buscar_versiculo_service, buscar_capitulo_service, buscar_intervalo_service
 
 router = APIRouter(prefix="/biblia", tags=["biblia"])
 
@@ -13,3 +13,8 @@ def buscar_versiculo_router(livro_abv: str, capitulo: int, versiculo: int):
 @router.get("/{livro_abv}/{capitulo}", response_model=CapituloResponse)
 def buscar_capitulo_router(livro_abv: str, capitulo: int):
     return buscar_capitulo_service(livro_abv, capitulo)
+
+#GET - listar versiculos de um intervalo de um capitulo
+@router.get("/{livro_abv}/{capitulo}/{inicio}/{fim}", response_model=CapituloResponse)
+def buscar_intervalo_router(livro_abv: str, capitulo: int, inicio: int, fim: int):
+    return buscar_intervalo_service(livro_abv, capitulo, inicio, fim)
