@@ -1,8 +1,6 @@
 from app.db import get_con
 
 def buscar_versiculo_repository(livro_abv, capitulo, versiculo):
-    # livro_id = con.execute("SELECT id FROM livros WHERE abv = ?", (livro_abv, )).fetchone()
-
     query = """
         SELECT l.nome, b.capitulo, b.versiculo, b.texto
         FROM biblia b
@@ -11,6 +9,18 @@ def buscar_versiculo_repository(livro_abv, capitulo, versiculo):
     """
     with get_con() as con:
         resultado = con.execute(query, (livro_abv, capitulo, versiculo,)).fetchone()
+    return dict(resultado) if resultado else None
+
+def vesiculo_aleatorio_repository():
+    query = """
+        SELECT l.nome, b.capitulo, b.versiculo, b.texto
+        FROM biblia b
+        JOIN livros l ON b.livro_id = l.id
+        ORDER BY random()
+        LIMIT 1
+    """
+    with get_con() as con:
+        resultado = con.execute(query).fetchone()
     return dict(resultado) if resultado else None
 
 def buscar_capitulo_repository(livro_abv, capitulo):
