@@ -1,0 +1,111 @@
+img {
+    display: block;
+    margin: auto;
+	width: 50%;
+}
+iframe{
+	margin: 10px;
+	width: 500px;
+}
+
+header{
+	padding: 0px;
+	margin: 0px;
+	font-size: 200%;
+	font-family: Georgia;
+}
+
+h1 {
+	text-shadow: 3px 3px black
+}
+
+p, li, h3 {
+	color: white;
+	text-shadow: 1px 1px black;
+}
+
+nav{
+	display: flex;
+    justify-content: space-evenly; 
+    align-items: center; 
+	text-align: left;
+	margin-bottom: 10px;
+	margin: 50px;
+	background-color: #00837C;
+}
+nav a{
+	padding: 15px 15px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 130%;
+	font-weight: bold;
+	color: #ffffff;
+	background-color: #00837C;
+}
+nav a:hover{
+	color: #00837C;
+	background-color: white; 
+}
+
+.fundo { 
+	background-image: url("https://www.saquarema.rj.gov.br/wp-content/uploads/2023/10/Foto-1-scaled.jpg?x63122");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	display: flex;
+	justify-content: center;
+	padding: 0px;
+	margin: 0px;
+}
+ 
+.bloco{
+	border: 3px solid black;
+	border-radius: 5px;
+	width: 1000px;
+	padding: 25px;
+	margin: 15px;
+	background-color: rgba(55, 130, 123, 0.8);
+}
+
+.sessao, .rodape{
+	display: none;
+}
+
+#sobrenos:target,
+#objetivo:target,
+#funcionalidades:target,
+#saquarema:target,
+#suporte:target{
+	display: block;
+}
+	
+.sessao{
+	border: 0px solid black;
+	margin: 5px;
+	font-size: 110%;
+	font-weight: bold;
+	font-family: 'Lucida Sans', Geneva, Verdana, sans-serif ;
+	color: white;
+}
+
+.sessao h1{
+	text-align: center;
+}
+
+.rodape{
+	color: white;
+	margin-top: 15px;
+	padding: 10px;
+	text-align:center;
+	font-size: 130%;
+}
+
+#saquarema, #titulo{
+	text-align:center;
+}
+
+#titulo h1 {
+	text-shadow: none;
+	color: white;
+	text-shadow: 4px 4px black;
+}
