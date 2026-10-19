@@ -6,7 +6,7 @@ from fastapi.responses import RedirectResponse
 from app.backend.routers.livros_routers import router as livros_router
 from app.backend.routers.versiculos_routers import router as versiculos_router
 
-VERSAO = "0.6.0"
+VERSAO = "0.6.1"
 
 app = FastAPI(title="Bíblia API", version=VERSAO)
 
