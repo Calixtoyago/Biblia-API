@@ -1,11 +1,24 @@
+from pathlib import Path
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.cors import CORSMiddleware
 from app.routers.livros_routers import router as livros_router
 from app.routers.versiculos_routers import router as versiculos_router
 
 app = FastAPI(title="Bíblia API", version="0.3.1")
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://127.0.0.1:5500", "http://localhost:5500"],
+    allow_methods=["GET"],
+    allow_headers=["*"],
+)
+
 app.include_router(livros_router)
 app.include_router(versiculos_router)
+
+FRONTEND_DIR = Path(__file__).resolve().parent / "frontend"
+app.mount("/web", StaticFiles(directory=FRONTEND_DIR, html=True), name="web")
 
 @app.get("/")
 def home():
