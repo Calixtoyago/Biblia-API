@@ -1,4 +1,4 @@
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = location.port === "5500" ? "http://127.0.0.1:8000" : "";
 
 import { biblia, abreviacoes } from "./biblia.js";
 

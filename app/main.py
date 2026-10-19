@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.routers.livros_routers import router as livros_router
 from app.routers.versiculos_routers import router as versiculos_router
 
-VERSAO = "0.4.0"
+VERSAO = "0.4.1"
 
 app = FastAPI(title="Bíblia API", version=VERSAO)
 
