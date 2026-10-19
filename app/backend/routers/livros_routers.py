@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-from app.schemas import LivroResponse
-from app.services.livros_services import buscar_livro_service, buscar_todos_livros_service
+from app.backend.schemas import LivroResponse
+from app.backend.services.livros_services import buscar_livro_service, buscar_todos_livros_service
 
 router = APIRouter(prefix="/livros", tags=["livros"])
 

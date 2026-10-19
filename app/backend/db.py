@@ -2,7 +2,7 @@ import sqlite3
 from contextlib import contextmanager
 from pathlib import Path
 
-DB_PATH = Path(__file__).resolve().parent.parent / "biblia.db"   # biblia-api/biblia.db
+DB_PATH = Path(__file__).resolve().parent[2] / "biblia.db"   # biblia-api/biblia.db
 
 @contextmanager
 def get_con():

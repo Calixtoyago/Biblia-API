@@ -1,4 +1,4 @@
-from app.repositories.versiculos_repository import buscar_versiculo_repository, buscar_capitulo_repository, buscar_intervalo_repository, vesiculo_aleatorio_repository
+from app.backend.repositories.versiculos_repository import buscar_versiculo_repository, buscar_capitulo_repository, buscar_intervalo_repository, vesiculo_aleatorio_repository
 from fastapi import HTTPException
 
 def buscar_versiculo_service(livro_abv, capitulo, versiculo):

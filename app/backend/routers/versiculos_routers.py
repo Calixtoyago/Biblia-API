@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-from app.schemas import VersiculoResponse, CapituloResponse
-from app.services.versiculos_services import buscar_versiculo_service, buscar_capitulo_service, buscar_intervalo_service, vesiculo_aleatorio_service
+from app.backend.schemas import VersiculoResponse, CapituloResponse
+from app.backend.services.versiculos_services import buscar_versiculo_service, buscar_capitulo_service, buscar_intervalo_service, vesiculo_aleatorio_service
 
 router = APIRouter(prefix="/biblia", tags=["biblia"])
 

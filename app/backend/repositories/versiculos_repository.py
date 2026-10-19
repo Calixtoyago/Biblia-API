@@ -1,4 +1,4 @@
-from app.db import get_con
+from app.backend.db import get_con
 
 def buscar_versiculo_repository(livro_abv, capitulo, versiculo):
     query = """

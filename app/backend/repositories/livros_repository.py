@@ -1,4 +1,4 @@
-from app.db import get_con
+from app.backend.db import get_con
 
 def buscar_livro(livro_abv):
     query = "SELECT abv, nome, testamento, capitulos, versiculos FROM livros WHERE lower(abv) = lower(?) "

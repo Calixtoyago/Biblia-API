@@ -1,4 +1,4 @@
-from app.repositories.livros_repository import buscar_livro, buscar_todos_livros
+from app.backend.repositories.livros_repository import buscar_livro, buscar_todos_livros
 from fastapi import HTTPException
 
 def buscar_livro_service(livro_abv):
