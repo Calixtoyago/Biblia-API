@@ -5,7 +5,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.routers.livros_routers import router as livros_router
 from app.routers.versiculos_routers import router as versiculos_router
 
-app = FastAPI(title="Bíblia API", version="0.3.1")
+VERSAO = "0.4.0"
+
+app = FastAPI(title="Bíblia API", version=VERSAO)
 
 app.add_middleware(
     CORSMiddleware,
@@ -24,6 +26,6 @@ app.mount("/web", StaticFiles(directory=FRONTEND_DIR, html=True), name="web")
 def home():
     return {
         "message": "Biblia API",
-        "versão": "0.3.1",
+        "versão": VERSAO,
         "créditos": "Todas as Escrituras em português citadas são da Bíblia Livre (BLIVRE), Copyright © Diego Santos, Mario Sérgio, e Marco Teles, http://sites.google.com/site/biblialivre/ - outubro de 2017. Licença Creative Commons Atribuição 3.0 Brasil (http://creativecommons.org/licenses/by/3.0/br/). Reprodução permitida desde que devidamente mencionados fonte e autores."
         }
