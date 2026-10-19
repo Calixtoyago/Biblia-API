@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bíblia API</title>
 </head>
 <body>
-    <form name="form1" id="form1" action="/action_page.php">
-        <label for="livro">Livro: </label> 
+    <form name="form1" id="form1" action="">
+        <label for="livro">Livro: </label>
         <select name="livro" id="livro">
             <option value="" selected="selected">Selecione o livro</option>
         </select>
 
         <br><br>
 
-        <label for="capitulo">Capítulo: </label> 
+        <label for="capitulo">Capítulo: </label>
         <select name="capitulo" id="capitulo">
             <option value="" selected="selected">Escolha o capitulo</option>
         </select>
-        
+
         <br><br>
 
-        <label for="versiculo">Versículo</label>
+        <label for="versiculo">Versículo: </label>
         <select name="versiculo" id="versiculo">
             <option value="" selected="selected">Escolha o versiculo</option>
         </select>
@@ -29,7 +29,12 @@
         <br><br>
 
         <input type="submit" value="Procurar">
-        <input type="submit" value="Versículo Aleatório">
     </form>
+
+    <button type="button" id="aleatorio">Versículo Aleatório</button>
+
+    <p id="resultado"></p>
+
+    <script type="module" src="main.js"></script>
 </body>
 </html>
