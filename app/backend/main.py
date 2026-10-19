@@ -6,7 +6,7 @@ from fastapi.responses import RedirectResponse
 from app.backend.routers.livros_routers import router as livros_router
 from app.backend.routers.versiculos_routers import router as versiculos_router
 
-VERSAO = "0.6.1"
+VERSAO = "0.6.2"
 
 app = FastAPI(title="Bíblia API", version=VERSAO)
 
@@ -20,7 +20,7 @@ app.add_middleware(
 app.include_router(livros_router)
 app.include_router(versiculos_router)
 
-FRONTEND_DIR = Path(__file__).resolve().parent[1] / "frontend"
+FRONTEND_DIR = Path(__file__).resolve().parent.parent / "frontend"
 app.mount("/web", StaticFiles(directory=FRONTEND_DIR, html=True), name="web")
 
 @app.get("/", include_in_schema=False)
