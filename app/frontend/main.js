@@ -22,6 +22,18 @@ window.onload = function () {
         resultado.replaceChildren(referencia, texto);
     }
 
+    for (var x in biblia) {
+        livroSel.options[livroSel.options.length] = new Option(x, x);
+    }
+
+    livroSel.onchange = function () {
+        versiculoSel.length = 1;
+        capituloSel.length = 1;
+        for (var y in biblia[this.value]) {
+            capituloSel.options[capituloSel.options.length] = new Option(y, y);
+        }
+    };
+    
     capituloSel.onchange = function () {
         versiculoSel.length = 1;
         var z = biblia[livroSel.value][this.value];
