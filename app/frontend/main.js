@@ -11,20 +11,16 @@ window.onload = function () {
     var botaoAleatorio = document.getElementById("aleatorio");
 
     function mostrarVersiculo(dados) {
-        resultado.textContent = dados.nome + " " + dados.capitulo + ":" + dados.versiculo + " — " + dados.texto;
-    }
+        var referencia = document.createElement("span");
+        referencia.className = "referencia";
+        referencia.textContent = dados.nome + " " + dados.capitulo + ":" + dados.versiculo;
 
-    for (var x in biblia) {
-        livroSel.options[livroSel.options.length] = new Option(x, x);
-    }
+        var texto = document.createElement("span");
+        texto.className = "texto";
+        texto.textContent = dados.texto;
 
-    livroSel.onchange = function () {
-        versiculoSel.length = 1;
-        capituloSel.length = 1;
-        for (var y in biblia[this.value]) {
-            capituloSel.options[capituloSel.options.length] = new Option(y, y);
-        }
-    };
+        resultado.replaceChildren(referencia, texto);
+    }
 
     capituloSel.onchange = function () {
         versiculoSel.length = 1;

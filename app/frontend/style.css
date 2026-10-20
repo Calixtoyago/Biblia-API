@@ -1,0 +1,253 @@
+/* =========================================================
+   Bíblia API
+   Fundo de pedra clara, tipografia larga e o versículo exibido
+   numa caixa azul com moldura escura.
+   ========================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap");
+
+/* ---------- Cores e fontes ---------- */
+:root {
+    --pedra: #eceff3;      /* fundo da página */
+    --branco: #ffffff;     /* cartão */
+    --chumbo: #1f2329;     /* texto e "chumbo" do vitral */
+    --cinza: #5e6672;      /* textos de apoio */
+    --borda: #c9cfd8;      /* bordas dos campos */
+    --cobalto: #2346c8;    /* cor principal */
+    --ambar: #f2b53a;      /* segundo tom do vitral */
+
+    --fonte: "Archivo", "Segoe UI", system-ui, sans-serif;
+}
+
+/* ---------- Base ---------- */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 48px 16px;
+    background-color: var(--pedra);
+    font-family: var(--fonte);
+    color: var(--chumbo);
+}
+
+/* ---------- Cartão ---------- */
+#bloco {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 36px 36px 28px;
+    background-color: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+}
+
+header {
+    text-align: left;
+}
+
+h1 {
+    margin: 0;
+    font-size: 40px;
+    font-weight: 800;
+    font-stretch: 125%;          /* versão larga da Archivo */
+    line-height: 1;
+    letter-spacing: -0.02em;
+}
+
+#versao {
+    margin: 8px 0 0;
+    font-size: 14px;
+    color: var(--cinza);
+}
+
+/* ---------- Formulário ---------- */
+#div-formulario {
+    margin-top: 28px;
+}
+
+/* Livro ocupa a linha toda; Capítulo e Versículo dividem a linha de baixo */
+.campos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "rot-livro rot-livro"
+        "sel-livro sel-livro"
+        "rot-cap   rot-vers"
+        "sel-cap   sel-vers";
+    column-gap: 12px;
+}
+
+label[for="livro"]     { grid-area: rot-livro; }
+#livro                 { grid-area: sel-livro; }
+label[for="capitulo"]  { grid-area: rot-cap; }
+#capitulo              { grid-area: sel-cap; }
+label[for="versiculo"] { grid-area: rot-vers; }
+#versiculo             { grid-area: sel-vers; }
+
+.campos label {
+    margin: 14px 0 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--cinza);
+}
+
+.campos label[for="livro"] {
+    margin-top: 0;
+}
+
+.campos select {
+    width: 100%;
+    height: 44px;
+    padding: 0 38px 0 12px;
+    font-family: var(--fonte);
+    font-size: 15px;
+    color: var(--chumbo);
+    background-color: var(--branco);
+    border: 1.5px solid var(--borda);
+    border-radius: 8px;
+    cursor: pointer;
+
+    appearance: none;
+    background-image:
+        linear-gradient(45deg, transparent 50%, var(--chumbo) 50%),
+        linear-gradient(135deg, var(--chumbo) 50%, transparent 50%);
+    background-position:
+        calc(100% - 20px) 50%,
+        calc(100% - 15px) 50%;
+    background-size: 5px 5px;
+    background-repeat: no-repeat;
+}
+
+.campos select:hover {
+    border-color: var(--chumbo);
+}
+
+/* ---------- Botões ---------- */
+.botoes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.botoes button {
+    height: 46px;
+    font-family: var(--fonte);
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.botao-principal {
+    color: var(--branco);
+    background-color: var(--cobalto);
+    border: 2px solid var(--cobalto);
+}
+
+.botao-principal:hover {
+    background-color: #1b37a3;
+    border-color: #1b37a3;
+}
+
+.botao-secundario {
+    color: var(--chumbo);
+    background-color: var(--branco);
+    border: 2px solid var(--chumbo);
+}
+
+.botao-secundario:hover {
+    background-color: var(--pedra);
+}
+
+select:focus-visible,
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid var(--ambar);
+    outline-offset: 2px;
+}
+
+/* ---------- Caixa do versículo ---------- */
+#div-resultado {
+    margin-top: 28px;
+    min-height: 180px;
+    padding: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--cobalto);
+    border: 6px solid var(--chumbo);
+    border-radius: 12px;
+}
+
+#resultado {
+    margin: 0;
+    max-width: 22em;
+    padding: 14px 16px;
+    font-size: 20px;
+    line-height: 1.45;
+    color: var(--branco);
+}
+
+#resultado .referencia {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 17px;
+    font-weight: 700;
+    font-stretch: 125%;
+    color: var(--ambar);
+}
+
+#resultado:empty::before {
+    content: "Escolha um versículo ou peça um aleatório.";
+    font-size: 15px;
+    opacity: 0.8;
+}
+
+/* ---------- Créditos ---------- */
+footer {
+    margin-top: 26px;
+}
+
+#creditos {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.55;
+    color: var(--cinza);
+}
+
+#creditos a {
+    color: inherit;
+}
+
+/* ---------- Celular ---------- */
+@media (max-width: 480px) {
+    body {
+        padding: 20px 12px 32px;
+    }
+
+    #bloco {
+        padding: 26px 20px 22px;
+    }
+
+    h1 {
+        font-size: 34px;
+    }
+
+    #div-resultado {
+        min-height: 160px;
+        padding: 24px 18px;
+    }
+
+    #resultado {
+        font-size: 18px;
+    }
+
+    .campos select {
+        padding: 0 30px 0 10px;
+        font-size: 14px;
+    }
+}
